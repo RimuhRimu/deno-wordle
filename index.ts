@@ -61,6 +61,9 @@ function game(): void {
       );
       for (const s of record) console.log(s);
       break;
+    } else if (MAX_TRIES === i+1) {
+      console.log(`The correct pokemon was ${pokemon}`)
+      break
     } else {
       record.push(
         checkPropmt(message.toUpperCase(), pokemon),
