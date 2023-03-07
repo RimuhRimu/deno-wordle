@@ -1,5 +1,16 @@
 {
-  "imports": {
-    "colors": "https://deno.land/std@0.168.0/fmt/colors.ts"
-  }
+	"imports": {
+		"colors": "https://deno.land/std@0.168.0/fmt/colors.ts"
+	},
+	"tasks": {
+		"play": "deno run --allow-env=ARCEUS_MODE --allow-net=pokeapi.co index.ts"
+	},
+	"fmt": {
+		"options": {
+			"semiColons": false,
+			"singleQuote": true,
+			"useTabs": true,
+			"indentWidth": 2
+		}
+	}
 }
