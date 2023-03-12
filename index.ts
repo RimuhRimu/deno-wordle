@@ -1,6 +1,9 @@
 import { bgBrightBlack, bgGreen, bgYellow, black, bold } from 'colors'
 const MAX_TRIES = 6
+//allows you to see the name of the pokemon
 const ARCEUS_MODE = !!Deno.env.get('ARCEUS_MODE')
+
+//fetch the pk
 const pokemon = await fetch(
 	`https://pokeapi.co/api/v2/pokemon/${Math.ceil(Math.random() * 800)}`,
 )
@@ -8,6 +11,13 @@ const pokemon = await fetch(
 	.then((json) => json.name.toUpperCase())
 if (ARCEUS_MODE) console.log(pokemon)
 
+/**
+ * checkPropmt.
+ *
+ * @param {string} msg
+ * @param {string} reference
+ * @returns {string}
+ */
 function checkPropmt(msg: string, reference: string): string {
 	let result = ''
 	for (let i = 0; i < msg.length; i++) {
@@ -21,6 +31,12 @@ function checkPropmt(msg: string, reference: string): string {
 	return result
 }
 
+/**
+ * splitPKname.
+ *
+ * @param {string} pk
+ * @returns {string}
+ */
 function splitPKname(pk: string): string {
 	let result = ''
 	for (const char of pk) {
@@ -29,6 +45,13 @@ function splitPKname(pk: string): string {
 	return result
 }
 
+/**
+ * writeColorMessg.
+ *
+ * @param {string} message
+ * @param {'wrong' | 'correct' | 'includes'} type
+ * @returns {string}
+ */
 function writeColorMessg(
 	message: string,
 	type: 'wrong' | 'correct' | 'includes',
@@ -41,6 +64,13 @@ function writeColorMessg(
 	return styles[type](message)
 }
 
+/**
+ * game.
+ *
+ * Starts the game
+ *
+ * @returns {void}
+ */
 function game(): void {
 	const record: string[] = []
 	let [guessed, i] = [false, 0]
