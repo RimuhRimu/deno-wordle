@@ -1,3 +1,4 @@
+//This is a terminal based game to play wordle using pokemon's name
 import { bgBrightBlack, bgGreen, bgYellow, black, bold } from 'colors'
 const MAX_TRIES = 6
 //allows you to see the name of the pokemon
